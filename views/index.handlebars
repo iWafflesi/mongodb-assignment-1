@@ -8,10 +8,10 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/saved">Saved Articles<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/saved">Saved Articles</a>
       </li>
       <li class="nav-item">
         <form class="form-inline" action="/scrape" method="GET" >
@@ -30,22 +30,23 @@
 </div>
 
 
-{{!-- Saved Artcile Card --}}
-{{#each saved}}
+{{!-- Artcile Card --}}
+{{#each articles}}
 <div class="card custom-card" id="{{this.id}}">
   <h2 class="card-header"><a href="{{this.link}}" target="_blank">{{this.title}}</a></h2>
   <div class="card-body">
       <img src="{{this.img}}" alt="Article Image" class="article-img float-left">
       <p class="card-text">{{this.summary}}</p>
       <form action="/save/{{this._id}}" method="POST">
-        <button type="submit" class="status btn btn-primary" value="{{this.status}}">{{this.status}}</button>
-        {{#unless this.note}}
-        <button type="button" class="addnote-button btn btn-primary" value="{{this._id}}">Add A Note</button>
-        {{/unless}} 
-        {{#if this.note}}
-        <button type="button" class="addnote-button btn btn-primary" value="{{this._id}}">Edit Note</button>
-        {{/if}}
+      <button type="submit" class="status btn btn-primary" value="{{this.status}}">{{this.status}}</button>
+      {{#unless this.note}}
+      <button type="button" class="addnote-button btn btn-primary" value="{{this._id}}">Add A Note</button>
+      {{/unless}} 
+      {{#if this.note}}
+      <button type="button" class="addnote-button btn btn-primary" value="{{this._id}}">Edit Note</button>
+      {{/if}}
       </form>
+    
   </div>
 </div>
 {{/each}}
