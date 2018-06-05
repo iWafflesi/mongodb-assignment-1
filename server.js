@@ -22,30 +22,6 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
 
-// var databaseUrl = 'mongodb://localhost/mongoHeadlines';
-// if (process.env.MONGODB_URI) {
-// 	mongoose.connect(process.env.MONGODB_URI);
-// }
-// else {
-// 	mongoose.connect(databaseUrl);
-// }
-
-// mongoose.Promise = Promise;
-// var db = mongoose.connection;
-
-// db.on("error", function(error) {
-// 	console.log("Mongoose Error: ", error);
-// });
-
-// db.once("open", function() {
-// 	console.log("Mongoose connection successful.");
-// });
-
-
-var app = express();
-var port = process.env.PORT || 3000;
-
-
 var app = express();
 var port = process.env.PORT || 3000;
 
