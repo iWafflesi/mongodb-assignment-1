@@ -14,32 +14,32 @@ var Note = require("./models/Note");
 var Article = require("./models/Article");
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-// // Set mongoose to leverage built in JavaScript ES6 Promises
-// // Connect to the Mongo DB
-// mongoose.Promise = Promise;
-// mongoose.connect(MONGODB_URI);
-
-
-var databaseUrl = 'mongodb://localhost/mongoHeadlines';
-if (process.env.MONGODB_URI) {
-	mongoose.connect(process.env.MONGODB_URI);
-}
-else {
-	mongoose.connect(databaseUrl);
-}
-
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
 mongoose.Promise = Promise;
-var db = mongoose.connection;
+mongoose.connect(MONGODB_URI);
 
-db.on("error", function(error) {
-	console.log("Mongoose Error: ", error);
-});
 
-db.once("open", function() {
-	console.log("Mongoose connection successful.");
-});
+// var databaseUrl = 'mongodb://localhost/mongoHeadlines';
+// if (process.env.MONGODB_URI) {
+// 	mongoose.connect(process.env.MONGODB_URI);
+// }
+// else {
+// 	mongoose.connect(databaseUrl);
+// }
+
+// mongoose.Promise = Promise;
+// var db = mongoose.connection;
+
+// db.on("error", function(error) {
+// 	console.log("Mongoose Error: ", error);
+// });
+
+// db.once("open", function() {
+// 	console.log("Mongoose connection successful.");
+// });
 
 
 var app = express();
